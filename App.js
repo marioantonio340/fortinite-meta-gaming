@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import  { HomeScreen } from './app/screens/home/index';
-import { AppLoading } from 'expo';
+import { SafeAreaView, StyleSheet, Text} from 'react-native';
+import { AppRoutes } from './app/routes/AppRoutes';
 import { useFonts } from 'expo-font';
+import { useState } from 'react';
 
 
 
 export default function App() {
+
   const [fontLoaded] =  useFonts({
     Burbank: require('./assets/fonts/BurbankBigCondensed-Black.otf'),
   });
@@ -16,21 +16,15 @@ export default function App() {
     return null;
   }
 
-
-
   return <SafeAreaView style={styles.container}>
-      <HomeScreen />
+      <AppRoutes />
       <StatusBar style="auto" />
     </SafeAreaView>
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
+    flex: 1
   },
 })
 

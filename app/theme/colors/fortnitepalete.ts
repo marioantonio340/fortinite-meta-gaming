@@ -2,7 +2,6 @@
 
 export const pallete = {
 
-
 /* Color Theme Swatches in Hex */
 primary_500: "#0460D9",
 primary_400: "#0476D9",
