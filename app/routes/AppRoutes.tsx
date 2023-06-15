@@ -22,6 +22,7 @@ export const AppRoutes = () => {
     <NavigationContainer>
       <Tab.Navigator
        screenOptions={{
+        headerShown: false,
         tabBarStyle: { 
           backgroundColor: pallete.primary_100,
           borderTopWidth: 1,
@@ -31,8 +32,14 @@ export const AppRoutes = () => {
           paddingBottom: 10,
           paddingTop: 10
         },
-        tabBarActiveTintColor: pallete.primary_500,
-        tabBarInactiveTintColor: pallete.primary_300
+        tabBarActiveTintColor: '#FFFFFF',
+        tabBarInactiveTintColor: pallete.primary_300,
+        tabBarActiveBackgroundColor: 'transparent',
+        tabBarLabelStyle: {
+          fontFamily: 'Burbank',
+          fontSize: 22,
+          textTransform: 'uppercase',
+        }
       }}
         >
       
@@ -42,12 +49,6 @@ export const AppRoutes = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: t('weapons'),
-          tabBarLabelStyle: {
-            textTransform: 'uppercase',
-            fontFamily: 'Burbank',
-            fontSize: 22,
-
-          },
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="pistol" color={color} size={32} />
           ),
@@ -61,12 +62,6 @@ export const AppRoutes = () => {
         component={AboutScreen} 
         options={{
           tabBarLabel: t('about'),
-          tabBarLabelStyle: {
-            textTransform: 'uppercase',
-            fontFamily: 'Burbank',
-            fontSize: 22,
-
-          },
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="dots-horizontal" color={color} size={32} />
           ),
@@ -79,16 +74,25 @@ export const AppRoutes = () => {
 }
 
 const styles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: '#191b28',
-    borderTopWidth: 1,
-    borderTopColor: '#121212',
-    height: 60,
-    justifyContent: 'center',
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 20,
   },
-  tabBarLabel: {
-    fontFamily: 'Burbank',
-    fontSize: 14,
-    marginTop: 2,
+  tabBar: {
+    backgroundColor: '#333',
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+  },
+  tabLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  selectedTab: {
+    backgroundColor: '#4c4c4c',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#333',
   },
 });

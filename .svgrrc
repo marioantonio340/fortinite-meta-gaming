@@ -1,0 +1,6 @@
+{
+  "replaceAttrValues": {
+    "red": "currentColor",
+    "#000000": "none"
+  }
+}

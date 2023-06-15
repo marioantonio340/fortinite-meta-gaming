@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Linking } from "react-native";
 import { useState } from "react";
 
 import '../../../i18n/i18n';
@@ -11,7 +11,6 @@ import * as S from "./styles";
 
 export const AboutScreen = () => {
     const { t, i18n } = useTranslation();
-
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('');
     const [items, setItems] = useState([
@@ -21,15 +20,20 @@ export const AboutScreen = () => {
 
     const changeLanguage = (value: string) => {
         i18n.changeLanguage(value)
-        .then(() => {
-            console.log('changed language');
-        })
-        
+            .then(() => {
+                console.log('changed language');
+            })
+
 
     }
 
+    const handleAdClick = () => {
+        // Lógica para exibir o anúncio e apoiá-lo
+    }
+
     return <S.Container>
-        <S.Title>{t('hello')}</S.Title>
+        <View>
+        <S.Name>{t('language')}</S.Name>
         <DropDownPicker
             open={open}
             value={value}
@@ -40,34 +44,23 @@ export const AboutScreen = () => {
             placeholder={t('choose-option')}
             onChangeValue={(value) => {
                 changeLanguage(value)
-              }}
-            style={styles.dropdown}
-            textStyle={styles.dropdownText}
+            }}
+            style={S.styles.dropdown}
+            textStyle={S.styles.dropdownText}
+            containerStyle={S.styles.container}
         />
+        </View>
+        <S.Card>
+            <S.Name >{t('created')} Mário Fernandes</S.Name>
+            <S.GithubButton onPress={() => Linking.openURL('https://github.com/marioantonio340')}>
+                <S.GithubIcon />
+                <S.GithubButtonText>{t('github')}</S.GithubButtonText>
+            </S.GithubButton>
+            <S.Button onPress={handleAdClick}>
+                <S.AdIcon />
+                <S.ButtonText>{t('ad')}</S.ButtonText>
+            </S.Button>
+        </S.Card>
 
     </S.Container>
 }
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    label: {
-        fontSize: 16,
-        marginBottom: 10,
-    },
-    dropdown: {
-        width: 200,
-        height: 40,
-        backgroundColor: '#fafafa',
-        borderWidth: 1,
-        borderColor: '#ccc',
-    },
-    dropdownText: {
-        textTransform: 'uppercase',
-        fontSize: 16,
-        color: '#333',
-        fontFamily: 'Burbank', // Altere aqui o nome da fonte que deseja usar
-    },
-});

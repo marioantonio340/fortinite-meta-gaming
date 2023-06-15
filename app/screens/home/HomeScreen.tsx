@@ -1,11 +1,21 @@
-import React from "react";
-import {  ScrollView, Text,View } from "react-native";
-import { Weapon } from "../weapon/weapon";
+import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { ActivityIndicator, Alert, FlatList, SafeAreaView, ScrollView, Text, View } from "react-native";
+import  WeaponsProvider  from "../../contexts/weapons/WeaponsProvider";
 
-import * as S from "./styles";
+import { TopRoutes } from "../../routes/top/TopRoutes";
+
+
+
 
 export const HomeScreen = () => {
-    return <ScrollView>
-            <Weapon />
-        </ScrollView>  
+   
+
+    return <WeaponsProvider>
+             <TopRoutes/>
+    </WeaponsProvider>
+
+
+
+
+
 }

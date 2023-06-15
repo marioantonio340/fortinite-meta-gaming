@@ -3,6 +3,12 @@
     "hello": "Hello World",
     "weapons": "Weapons",
     "about": "About",
-    "choose-option": "Choose an option"
+    "choose-option": "Choose an option",
+    "dps": "dps",
+    "cure": "cure",
+    "created": "Created by",
+    "ad": "Watch ad and support",
+    "github": "My Github",
+    "language": "Language"
   }
 }
